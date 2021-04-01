@@ -17,18 +17,24 @@ export class Card extends Component {
   };
 
   render() {
-    let { Container, Navigate } = CardBundle;
+    let { Container, Navigate, FirstSection } = CardBundle;
     let { data } = this.props;
     return (
       <Container>
-        <img
-          src={playerList[data.Id] ? playerList[data.Id] : unknown}
-          alt="Avatar"
-        ></img>
-        <Navigate>
+        <FirstSection>
+          <div className="avtar">
+            <img
+              src={playerList[data.Id] ? playerList[data.Id] : unknown}
+              alt="Avatar"
+            ></img>
+          </div>
+
           <span>{data.PFName}</span>
+        </FirstSection>
+
+        <Navigate>
           <span>{data.SkillDesc}</span>
-          <span>{`$ ${data.Value}`}</span>
+          <span>{`$${data.Value}`}</span>
           <span>{`${data.CCode} Vs ${
             data.UpComingMatchesList[0].VsCCode.length === 0
               ? "?"

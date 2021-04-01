@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  width: 260px;
+  width: 45%;
   margin: 15px 8px;
   border-radius: 6px;
   padding: 15px;
@@ -13,13 +13,16 @@ const Container = styled.div`
   transition: box-shadow 0.3s;
   background-color: ${({ theme }) => theme.background};
   cursor: pointer;
-  > img {
-    width: 100%;
-    margin-bottom: 1rem;
-    border-radius: 3px;
-  }
+  display: flex;
 
-  :hover > img {
+  @media screen and (max-width: 1068px) {
+    width: 60%;
+  }
+  @media screen and (max-width: 968px) {
+    width: 70%;
+  }
+  @media screen and (max-width: 568px) {
+    width: 92%;
   }
 `;
 
@@ -27,15 +30,13 @@ const Navigate = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  position: relative;
   > span {
     text-align: center;
-    border: 1px solid;
-    border-color: ${({ theme }) => theme.badge};
     padding: 3px;
-    background-color: ${({ theme }) => theme.badge};
-    color: ${({ theme }) => theme.cardColor};
-    font-family: "Ranchers", cursive;
-    border-radius: 3px;
+    color: ${({ theme }) => theme.primary};
+    font-family: "Ranchers", sans-serif;
     letter-spacing: 1.5px;
   }
   > img {
@@ -43,7 +44,29 @@ const Navigate = styled.div`
   }
 `;
 
+const FirstSection = styled.div`
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 50%;
+  > div[class="avtar"] {
+    max-width: 90%;
+    > img {
+      width: 100%;
+      margin-bottom: 1rem;
+      border-radius: 50%;
+    }
+  }
+
+  > span {
+    text-align: center;
+    letter-spacing: 1px;
+  }
+`;
+
 export const CardBundle = {
   Container,
   Navigate,
+  FirstSection,
 };
