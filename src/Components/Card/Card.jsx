@@ -9,6 +9,8 @@ export class Card extends Component {
     const d1 = new Date(date);
     return d1.toString();
   };
+
+  renderPlayerImageHandler = (playerId) => {};
   render() {
     let { Container, Navigate } = CardBundle;
     let { data } = this.props;

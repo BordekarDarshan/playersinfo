@@ -29,7 +29,6 @@ export class Home extends Component {
   };
 
   filterPlayerHandler = (MedData, inputMed) => {
-    // Also filter by TName
     if (this.props.player.playerList) {
       let filterMedName = MedData.filter(
         (content) =>
