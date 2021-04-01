@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { playerList } from "../../Page/Util";
 import { CardBundle } from "./Card.style";
+import unknown from "../../player-images/unknown.svg";
 
 export class Card extends Component {
   routeToProfile = (url) => {
@@ -11,21 +12,15 @@ export class Card extends Component {
     return d1.toString();
   };
 
-  renderPlayerImageHandler = (playerId) => {
-    for (const key in playerList) {
-      if (key === playerId) {
-        const image = playerList[key];
-        return image;
-      }
-    }
-  };
   render() {
     let { Container, Navigate } = CardBundle;
     let { data } = this.props;
-
     return (
       <Container>
-        <img src={this.renderPlayerImageHandler(data.Id)} alt="Avatar"></img>
+        <img
+          src={playerList[data.Id] ? playerList[data.Id] : unknown}
+          alt="Avatar"
+        ></img>
         <Navigate>
           <span>{data.PFName}</span>
           <span>{data.SkillDesc}</span>

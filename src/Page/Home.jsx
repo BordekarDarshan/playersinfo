@@ -43,7 +43,7 @@ export class Home extends Component {
   render() {
     let { Container, CardWrapper } = BundleHome;
     let { player, theme } = this.props;
-    console.log(this.props.player);
+
     return (
       <Container>
         <Input
