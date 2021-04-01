@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { playerList } from "../../Page/Util";
 import { CardBundle } from "./Card.style";
-import unknown from "../../player-images/unknown.svg";
+import Dark from "../../Upload/LogoDark.png";
+import Light from "../../Upload/LogoLight.png";
 
 export class Card extends Component {
   routeToProfile = (url) => {
@@ -24,7 +25,13 @@ export class Card extends Component {
         <FirstSection>
           <div className="avtar">
             <img
-              src={playerList[data.Id] ? playerList[data.Id] : unknown}
+              src={
+                playerList[data.Id]
+                  ? playerList[data.Id]
+                  : this.props.theme === "light"
+                  ? Light
+                  : Dark
+              }
               alt="Avatar"
             ></img>
           </div>

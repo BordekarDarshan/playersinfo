@@ -14,7 +14,7 @@ const Container = styled.div`
   background-color: ${({ theme }) => theme.background};
   cursor: pointer;
   display: flex;
-
+  min-height: 250px;
   @media screen and (max-width: 1068px) {
     width: 60%;
   }
@@ -32,6 +32,8 @@ const Navigate = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
+  max-width: 50%;
+  width: 50%;
   > span {
     text-align: center;
     padding: 3px;
@@ -50,6 +52,7 @@ const FirstSection = styled.div`
   align-items: center;
   justify-content: center;
   max-width: 50%;
+  width: 50%;
   > div[class="avtar"] {
     max-width: 90%;
     > img {
