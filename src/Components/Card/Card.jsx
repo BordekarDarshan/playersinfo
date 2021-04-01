@@ -16,8 +16,6 @@ export class Card extends Component {
       if (key === playerId) {
         const image = playerList[key];
         return image;
-      } else {
-        return;
       }
     }
   };
