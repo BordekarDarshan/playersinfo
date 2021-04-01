@@ -31,8 +31,10 @@ export class Home extends Component {
   filterPlayerHandler = (MedData, inputMed) => {
     // Also filter by TName
     if (this.props.player.playerList) {
-      let filterMedName = MedData.filter((content) =>
-        content.PFName.toLowerCase().includes(inputMed.toLowerCase())
+      let filterMedName = MedData.filter(
+        (content) =>
+          content.PFName.toLowerCase().includes(inputMed.toLowerCase()) ||
+          content.TName.toLowerCase().includes(inputMed.toLowerCase())
       );
 
       this.setState({ FliteredData: filterMedName });
@@ -42,6 +44,7 @@ export class Home extends Component {
   render() {
     let { Container, CardWrapper } = BundleHome;
     let { player, theme } = this.props;
+    console.log(this.props.player);
     return (
       <Container>
         <Input
