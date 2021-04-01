@@ -18,6 +18,7 @@ export class Card extends Component {
         {/* <img src={data.avatar_url} alt="Avatar"></img> */}
         <Navigate>
           <span>{data.PFName}</span>
+          <span>{data.SkillDesc}</span>
           <span>{`$ ${data.Value}`}</span>
           <span>{`${data.CCode} Vs ${data.UpComingMatchesList[0].VsCCode}`}</span>
           <span>{this.timeZoneHandler(data.UpComingMatchesList[0].MDate)}</span>

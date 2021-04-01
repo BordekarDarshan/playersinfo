@@ -13,7 +13,7 @@ export class Input extends Component {
           <Input
             onChange={onChange}
             value={search}
-            placeholder="Enter username here..."
+            placeholder="Enter Player or Team name here..."
           ></Input>
 
           <img
