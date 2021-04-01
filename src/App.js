@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useRef, useEffect } from "react";
+import { ThemeProvider } from "styled-components";
+import Footer from "./Components/Footer/Footer.jsx";
+import Navigation from "./Components/Navigation/Navigation.jsx";
+import Home from "./Page/Home.jsx";
+import { GlobalStyles, Cursor } from "./Theme/Global.magic.jsx";
+import { lightTheme, darkTheme } from "./Theme/Theme";
 
 function App() {
+  const [theme, setTheme] = useState("light");
+
+  let cursor = useRef();
+  useEffect(() => {
+    window.addEventListener("mousemove", cursorLocate);
+  }, []);
+
+  let cursorLocate = (e) => {
+    cursor.current.style.top = e.pageY + "px";
+    cursor.current.style.left = e.pageX + "px";
+  };
+
+  const themeToggler = () => {
+    theme === "light" ? setTheme("dark") : setTheme("light");
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      <GlobalStyles />
+      <Cursor ref={cursor}></Cursor>
+      <Navigation changeMode={themeToggler} theme={theme} />
+      <Home theme={theme} />
+      <Footer />
+    </ThemeProvider>
   );
 }
-
 export default App;
