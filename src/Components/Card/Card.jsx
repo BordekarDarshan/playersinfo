@@ -19,16 +19,17 @@ export class Card extends Component {
 
   render() {
     let { Container, Navigate, FirstSection } = CardBundle;
-    let { data } = this.props;
+    let { data, theme } = this.props;
     return (
       <Container>
         <FirstSection>
           <div className="avtar">
+            {/* Dynamic property keys */}
             <img
               src={
                 playerList[data.Id]
                   ? playerList[data.Id]
-                  : this.props.theme === "light"
+                  : theme === "light"
                   ? Light
                   : Dark
               }

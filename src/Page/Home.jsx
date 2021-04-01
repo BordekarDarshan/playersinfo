@@ -30,6 +30,7 @@ export class Home extends Component {
 
   filterPlayerHandler = (MedData, inputMed) => {
     if (this.props.player.playerList) {
+      // search by PFName or TName
       let filterMedName = MedData.filter(
         (content) =>
           content.PFName.toLowerCase().includes(inputMed.toLowerCase()) ||
@@ -43,7 +44,6 @@ export class Home extends Component {
   render() {
     let { Container, CardWrapper } = BundleHome;
     let { player, theme } = this.props;
-    console.log(player);
     return (
       <Container>
         <Input
@@ -51,6 +51,7 @@ export class Home extends Component {
           search={this.state.search}
           theme={theme}
         />
+        {/* FliteredData = 0 ? show api data : show FliteredData  */}
         {this.state.FliteredData.length > 0 ? (
           <CardWrapper>
             {this.state.FliteredData.map((data) => (
