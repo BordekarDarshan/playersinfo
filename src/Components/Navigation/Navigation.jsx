@@ -23,6 +23,7 @@ export class Navigation extends Component {
           onClick={() => changeMode()}
           alt="Change Mode"
           ref={this.cursor}
+          title="Enable Light/Dark Mode"
           onMouseOver={this.scaleImage}
           onMouseLeave={this.scaleDown}
         ></img>
