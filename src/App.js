@@ -9,6 +9,8 @@ import { lightTheme, darkTheme } from "./Theme/Theme";
 function App() {
   const [theme, setTheme] = useState("light");
 
+  /* Custom Cursor CSS */
+
   /* let cursor = useRef();
   useEffect(() => {
     window.addEventListener("mousemove", cursorLocate);
@@ -27,6 +29,8 @@ function App() {
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <GlobalStyles />
       {/* <Cursor ref={cursor}></Cursor> */}
+
+      {/* Light and Dark mode */}
       <Navigation changeMode={themeToggler} theme={theme} />
       <Home theme={theme} />
       <Footer />
