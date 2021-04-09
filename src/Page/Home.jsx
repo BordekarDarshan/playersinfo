@@ -29,7 +29,7 @@ export class Home extends Component {
   };
 
   filterPlayerHandler = (MedData, inputMed) => {
-    if (this.props.player.playerList) {
+    if (this.props.player?.playerList) {
       // search by PFName or TName
       let filterMedName = MedData.filter(
         (content) =>
